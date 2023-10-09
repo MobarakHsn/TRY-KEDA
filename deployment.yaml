@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: test
+  name: xkcd
+  labels:
+    app: xkcd
+spec:
+  selector:
+    matchLabels:
+      app: xkcd
+  template:
+    metadata:
+      labels:
+        app: xkcd
+    spec:
+      containers:
+        - name: xkcd
+          image: mobarak9239/my-go-app:v1
+          ports:
+            - containerPort: 8080
